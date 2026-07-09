@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taychi Sushi Bar — Cardápio do Rodízio</title>
+<meta name="description" content="Cardápio dos rodízios Tradicional e Especial do Taychi Sushi Bar Manaus. Aberto das 18h às 23h.">
+<meta name="theme-color" content="#0a0507">
+
+<meta property="og:title" content="Taychi Sushi Bar — Rodízio">
+<meta property="og:description" content="Rodízio Tradicional R$ 119 · Rodízio Especial R$ 129 · Das 18h às 23h">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+
+:root {
+  --bg: #0a0507;
+  --bg-card: #120809;
+  --bg-panel: #1a0a0c;
+  --border-red: #3a1518;
+  --border-gold: #3a2a15;
+  --text: #f5ecec;
+  --text-dim: #b8a8a8;
+  --text-mute: #8a7676;
+  --red: #e2384a;
+  --red-soft: #c94a5a;
+  --gold: #d4af6a;
+  --gold-soft: #b89555;
+}
+
+html { font-size: 16px; }
+
+@media (max-width: 500px) {
+  html { font-size: 17px; }
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  line-height: 1.55;
+  min-height: 100vh;
+  -webkit-text-size-adjust: 100%;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(226,56,74,0.06), transparent 45%),
+    radial-gradient(circle at 80% 90%, rgba(212,175,106,0.05), transparent 45%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 24px 16px 60px;
+}
+
+/* Header */
+header {
+  text-align: center;
+  padding: 24px 8px 32px;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 6px;
+}
+
+.logo-mark {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+}
+
+.logo-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 38px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  line-height: 1;
+  color: var(--text);
+}
+
+.logo-sub {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 4px;
+  color: var(--text-mute);
+  text-transform: lowercase;
+  margin-top: 4px;
+  text-align: right;
+}
+
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 5vw, 44px);
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin-top: 8px;
+  color: var(--text);
+}
+
+.hero-hours {
+  font-size: 12px;
+  letter-spacing: 5px;
+  color: var(--text-mute);
+  margin-top: 10px;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin: 28px 0 30px;
+  flex-wrap: wrap;
+}
+
+.tab {
+  background: transparent;
+  border: 1px solid var(--border-red);
+  color: var(--text-dim);
+  padding: 14px 24px;
+  min-height: 48px;
+  font-family: inherit;
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s;
+  border-radius: 2px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 500;
+}
+
+.tab .price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  letter-spacing: 0;
+  text-transform: none;
+  font-weight: 600;
+}
+
+.tab[data-active="true"] {
+  color: var(--text);
+}
+
+.tab[data-tab="tradicional"][data-active="true"] {
+  background: rgba(226,56,74,0.12);
+  border-color: var(--red);
+  box-shadow: 0 0 0 1px rgba(226,56,74,0.3);
+}
+
+.tab[data-tab="tradicional"][data-active="true"] .price { color: var(--red); }
+
+.tab[data-tab="especial"][data-active="true"] {
+  background: rgba(212,175,106,0.1);
+  border-color: var(--gold);
+  box-shadow: 0 0 0 1px rgba(212,175,106,0.3);
+}
+
+.tab[data-tab="especial"][data-active="true"] .price { color: var(--gold); }
+
+/* Panels */
+.panel { display: none; animation: fadein 0.35s ease; }
+.panel[data-active="true"] { display: block; }
+
+@keyframes fadein {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.panel-header {
+  border: 1px solid var(--border-red);
+  border-radius: 6px;
+  padding: 26px 24px;
+  text-align: center;
+  margin-bottom: 26px;
+  background: linear-gradient(180deg, var(--bg-card), transparent);
+}
+
+.panel[data-tab="especial"] .panel-header {
+  border-color: var(--border-gold);
+}
+
+.panel-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 6vw, 52px);
+  font-weight: 700;
+  letter-spacing: 4px;
+  line-height: 1;
+}
+
+.panel[data-tab="tradicional"] .panel-title { color: var(--red); }
+.panel[data-tab="especial"] .panel-title { color: var(--gold); }
+
+.panel-subtitle {
+  font-size: 11px;
+  letter-spacing: 6px;
+  color: var(--text-dim);
+  margin-top: 12px;
+  text-transform: uppercase;
+}
+
+.panel-price {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 10px 22px;
+  border: 1px solid;
+  border-radius: 4px;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.panel[data-tab="tradicional"] .panel-price {
+  border-color: var(--red);
+  background: rgba(226,56,74,0.08);
+}
+.panel[data-tab="especial"] .panel-price {
+  border-color: var(--gold);
+  background: rgba(212,175,106,0.06);
+}
+
+.panel-price .label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: var(--text-mute);
+  display: block;
+}
+
+.panel-price .value {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+.panel[data-tab="tradicional"] .panel-price .value { color: var(--red); }
+.panel[data-tab="especial"] .panel-price .value { color: var(--gold); }
+
+/* Sections grid */
+.sections-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+}
+
+@media (min-width: 780px) {
+  .sections-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px 40px;
+  }
+}
+
+.section {
+  padding: 4px 0;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(16px, 3.6vw, 17px);
+  letter-spacing: 5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 10px 12px;
+  margin-bottom: 18px;
+  position: relative;
+  color: var(--text);
+}
+
+.section-title::before,
+.section-title::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 40px;
+  height: 1px;
+}
+
+.panel[data-tab="tradicional"] .section-title::before,
+.panel[data-tab="tradicional"] .section-title::after {
+  background: var(--red);
+  opacity: 0.5;
+}
+.panel[data-tab="especial"] .section-title::before,
+.panel[data-tab="especial"] .section-title::after {
+  background: var(--gold);
+  opacity: 0.5;
+}
+
+.section-title::before { right: calc(50% + 90px); }
+.section-title::after { left: calc(50% + 90px); }
+
+.section-hint {
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-mute);
+  font-style: italic;
+  margin-top: -12px;
+  margin-bottom: 16px;
+  letter-spacing: 0.5px;
+}
+
+.section-suffix {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: var(--text-mute);
+  letter-spacing: 2px;
+  margin-left: 8px;
+}
+
+/* Items */
+.item {
+  padding: 12px 6px 14px;
+  border-bottom: 1px dashed rgba(255,255,255,0.06);
+}
+
+.item:last-child { border-bottom: none; }
+
+.item-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(19px, 4.4vw, 20px);
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.25;
+}
+
+.item-num {
+  font-size: 13px;
+  font-weight: 600;
+  min-width: 22px;
+  font-family: 'Inter', sans-serif;
+}
+
+.panel[data-tab="tradicional"] .item-num { color: var(--red-soft); }
+.panel[data-tab="especial"] .item-num { color: var(--gold-soft); }
+
+.item-name {
+  flex: 1;
+}
+
+.item-badge {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 9px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  padding: 2px 8px;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  border-radius: 3px;
+  text-transform: uppercase;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+.item-desc {
+  font-size: clamp(14px, 3.4vw, 14.5px);
+  color: var(--text-dim);
+  margin-top: 5px;
+  margin-left: 34px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.item-limit {
+  color: var(--red-soft);
+  font-style: italic;
+  font-size: 13px;
+  margin-left: 6px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+}
+
+/* Regras */
+.regras {
+  margin-top: 40px;
+  border: 1px solid var(--border-red);
+  border-radius: 6px;
+  padding: 26px 24px;
+  background: linear-gradient(180deg, transparent, var(--bg-card));
+}
+
+.panel[data-tab="especial"] .regras { border-color: var(--border-gold); }
+
+.regras-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px;
+  letter-spacing: 5px;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.regras-title::before,
+.regras-title::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 30px;
+  height: 1px;
+}
+
+.panel[data-tab="tradicional"] .regras-title::before,
+.panel[data-tab="tradicional"] .regras-title::after {
+  background: var(--red); opacity: 0.5;
+}
+.panel[data-tab="especial"] .regras-title::before,
+.panel[data-tab="especial"] .regras-title::after {
+  background: var(--gold); opacity: 0.5;
+}
+.regras-title::before { right: calc(50% + 100px); }
+.regras-title::after { left: calc(50% + 100px); }
+
+.regras-list {
+  columns: 1;
+  gap: 30px;
+  list-style: none;
+  font-size: clamp(14px, 3.4vw, 14.5px);
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+
+@media (min-width: 780px) {
+  .regras-list { columns: 2; }
+}
+
+.regras-list li {
+  break-inside: avoid;
+  padding: 6px 0 6px 18px;
+  position: relative;
+}
+
+.regras-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--text-mute);
+}
+
+.regras-list strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.footer-message {
+  text-align: center;
+  margin-top: 30px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--gold);
+  opacity: 0.85;
+}
+
+.panel[data-tab="tradicional"] .footer-message { color: var(--red-soft); }
+
+/* Footer geral */
+.site-footer {
+  text-align: center;
+  padding: 40px 20px 12px;
+  color: var(--text-mute);
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.site-footer a {
+  color: var(--text-dim);
+  text-decoration: none;
+}
+
+.site-footer a:hover { color: var(--text); }
+
+@media (max-width: 640px) {
+  .section-title::before, .section-title::after,
+  .regras-title::before, .regras-title::after { display: none; }
+
+  .container { padding: 18px 14px 44px; }
+
+  header { padding: 18px 4px 24px; }
+  .logo-text { font-size: 32px; }
+  .logo-sub { font-size: 10px; letter-spacing: 3px; }
+  .hero-title { letter-spacing: 3px; }
+  .hero-hours { font-size: 11px; letter-spacing: 4px; }
+
+  .tabs { gap: 10px; margin: 22px 0 26px; }
+  .tab {
+    padding: 14px 20px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    gap: 10px;
+    min-height: 52px;
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+  .tab .price { font-size: 17px; }
+
+  .panel-header { padding: 24px 18px; margin-bottom: 22px; }
+  .panel-title { letter-spacing: 3px; }
+  .panel-subtitle { font-size: 12px; letter-spacing: 4px; padding: 0 8px; line-height: 1.5; }
+  .panel-price { padding: 12px 24px; margin-top: 20px; }
+  .panel-price .value { font-size: 30px; }
+  .panel-price .label { font-size: 11px; letter-spacing: 3px; }
+
+  .section-title { letter-spacing: 4px; padding: 12px 8px; }
+
+  .item { padding: 14px 4px 16px; }
+  .item-num { min-width: 24px; font-size: 13px; }
+  .item-desc { margin-left: 36px; }
+
+  .regras { padding: 24px 18px; margin-top: 32px; }
+  .regras-title { letter-spacing: 4px; }
+  .regras-list li { padding: 8px 0 8px 20px; }
+
+  .footer-message { font-size: 22px; margin-top: 24px; }
+
+  .site-footer { font-size: 11px; letter-spacing: 1.5px; padding: 32px 12px 8px; line-height: 1.7; }
+}
+
+@media (max-width: 380px) {
+  .tab { padding: 12px 14px; font-size: 11px; letter-spacing: 1.5px; }
+  .tab .price { font-size: 15px; }
+  .panel-title { letter-spacing: 2px; }
+  .item-header { gap: 10px; }
+  .item-desc { margin-left: 32px; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<header>
+  <div class="logo">
+    <svg class="logo-mark" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.6">
+      <path d="M32 6 L28 14 L36 14 Z" fill="currentColor"/>
+      <path d="M20 18 Q20 16 24 16 L40 16 Q44 16 44 18 L44 22 L20 22 Z" fill="currentColor"/>
+      <ellipse cx="32" cy="34" rx="14" ry="16" fill="currentColor"/>
+      <ellipse cx="32" cy="32" rx="7" ry="9" fill="var(--bg)"/>
+      <path d="M25 32 L28 32 M39 32 L36 32" stroke="var(--bg)" stroke-width="1.5"/>
+      <path d="M32 40 L32 46 M28 43 L36 43" stroke="var(--bg)" stroke-width="1"/>
+      <path d="M18 50 Q32 58 46 50" stroke="currentColor" stroke-width="1"/>
+    </svg>
+    <div>
+      <div class="logo-text">Taychí</div>
+      <div class="logo-sub">sushi bar</div>
+    </div>
+  </div>
+  <h1 class="hero-title">CARDÁPIO DO RODÍZIO</h1>
+  <p class="hero-hours">DAS 18H ÀS 23H</p>
+</header>
+
+<div class="tabs" role="tablist">
+  <button class="tab" data-tab="tradicional" data-active="true" role="tab" aria-selected="true">
+    <span>Tradicional</span>
+    <span class="price">R$ 119</span>
+  </button>
+  <button class="tab" data-tab="especial" data-active="false" role="tab" aria-selected="false">
+    <span>Especial</span>
+    <span class="price">R$ 129</span>
+  </button>
+</div>
+
+<!-- ===================== TRADICIONAL ===================== -->
+<section class="panel" data-tab="tradicional" data-active="true">
+  <div class="panel-header">
+    <div class="panel-title">RODÍZIO<br>TRADICIONAL</div>
+    <div class="panel-subtitle">Das 18h às 23h</div>
+    <div class="panel-price">
+      <span class="label">VALOR</span>
+      <span class="value">R$ 119,00</span>
+    </div>
+  </div>
+
+  <div class="sections-grid">
+
+    <!-- Coluna 1 -->
+    <div>
+      <div class="section">
+        <h2 class="section-title">Entradas</h2>
+        <div class="item">
+          <div class="item-header"><span class="item-num">01</span><span class="item-name">Salmão Ball<span class="item-limit">· limite de 6 un.</span></span></div>
+          <p class="item-desc">Bolinhos de salmão empanado</p>
+        </div>
+        <div class="item">
+          <div class="item-header"><span class="item-num">02</span><span class="item-name">Harumaki</span></div>
+          <p class="item-desc">Opções de queijo, salmão ou carne com legumes</p>
+        </div>
+        <div class="item">
+          <div class="item-header"><span class="item-num">03</span><span class="item-name">Sunomono Simples</span></div>
+          <p class="item-desc">Salada de pepino, molho oriental e gergelim</p>
+        </div>
+        <div class="item">
+          <div class="item-header"><span class="item-num">04</span><span class="item-name">Guioza de Carne</span></div>
+          <p class="item-desc">Pastelzinho chinês com recheio de carne</p>
+        </div>
+        <div class="item">
+          <div class="item-header"><span class="item-num">05</span><span class="item-name">Guioza Suíno</span></div>
+          <p class="item-desc">Pastelzinho chinês com recheio suíno</p>
+        </div>
+        <div class="item">
+          <div class="item-header"><span class="item-num">06</span><span class="item-name">Gyu Tan na Chapa</span></div>
+          <p class="item-desc">Lâmina de língua bovina frita com alho frito</p>
+        </div>
+        <div class="item">
+          <div class="item-header"><span class="item-num">07</span><span class="item-name">Shimeji na Chapa</span></div>
+          <p class="item-desc">Cogumelos shimeji preparados na manteiga</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">Sushis Tradicionais</h2>
+        <div class="item">
+          <div class="item-header"><span class="item-num">01</span><span class="item-name">Hossomaki de Salmão</span></div>
+          <p class="item-desc">Arroz, nori e salmão</p>
+        </div>
+        <div class="item">
+          <div class="item-header"><span class="item-num">02</span><span class="item-name">Uramaki Philadelphia</span></div>
+          <p class="item-desc">Arroz, nori, salmão, cream cheese e cebolinha</p>
+        </div>
+        <div class="item">
+          <div class="item-header"><span class="item-num">03</span><span class="item-name">Uramaki Butterfly</span></div>
+          <p class="item-desc">Arroz, camarão empanado e cream cheese</p>
+        </div>
+        <div class="item">
+          <div class="item-header"><span class="item-num">04</span><span class="item-name">Uramaki Taychi</span></div>
+          <p class="item-desc">Arroz, salmão, camarão empanado e cream cheese</p>
+        </div>
+        <div class="item">
+          <div class="item-header"><span class="item-num">05</span><span class="item-name">Uramaki Skin</span></div>
+          <p class="item-desc">Arroz, skin frito, cream cheese e cebolinha</p>
+        </div>
+        <div class="item">
+          <div class="item-header"><span class="item-num">06</span><span class="item-name">Uramaki Shimeji</span></div>
+          <p class="item-desc">Arroz, shimeji, cream cheese e cebolinha</p>
+        </div>
+        <div class="item">
+          <div class="item-header"><span class="item-num">07</span><span class="item-name">Uramaki Grill</span></div>
+          <p class="item-desc">Arroz, patê grill, cream cheese e cebolinha</p>
+        </div>
+        <div class="item">
+          <div class="item-header"><span class="item-num">08</span><span class="item-name">Uramaki Califórnia Tradicional</span></div>
+          <p class="item-desc">Arroz, kani, manga e pepino</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Coluna 2 -->
+    <div>
+      <div class="section">
+        <h2 class="section-title">Yakisoba</h2>
+        <div class="item">
+          <div class="item-header"><span class="item-num">01</span><span class="item-name">Yakisoba Carne e Frango</span></div>
+          <p class="item-desc">Macarrão ao molho oriental com carne, frango e legumes</p>
+        </div>
+        <div class="item">
+          <div class="item-header"><span class="item-num">02</span><span class="item-name">Yakisoba Taychi</span></div>
+          <p class="item-desc">Macarrão ao molho oriental com carne, frango, camarão e legumes</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">Sushis Hot<span class="section-suffix">8 UN · 4 UN</span></h2>
+        <div class="item">
+          <div class="item-header"><span class="item-num">01</span><span class="item-name">Hot Philadelphia</span></div>
+          <p class="item-desc">Arroz, salmão, cream cheese e cebolinha</p>
+        </div>
+        <div class="item">
+          <div class="item-header"><span class="item-num">02</span><span class="item-name">Hot Butterfly</span></div>
+          <p class="item-desc">Arroz, camarão empanado e cream cheese</p>
+        </div>
+        <div class="item">
+          <div class="item-header"><span class="item-num">03</span><span class="item-name">Hot Skin</span></div>
+          <p class="item-desc">Arroz, pele de salmão frita, cream cheese e cebolinha</p>
+        </div>
+        <div class="item">
+          <div class="item-header"><span class="item-num">04</span><span class="item-name">Hot Grill</span></div>
+          <p class="item-desc">Arroz, salmão grelhado, cream cheese e cebolinha</p>
+        </div>
+        <div class="item">
+          <div class="item-header"><span class="item-num">05</span><span class="item-name">Hot Shimeji</span></div>
+          <p class="item-desc">Arroz, shimeji, cream cheese e cebolinha</p>
+        </div>
+        <div class="item">
+          <div class="item-header"><span class="item-num">06</span><span class="item-name">Hot Taychi</span></div>
+          <p class="item-desc">Arroz, salmão, camarão empanado e cream cheese</p>
+        </div>
+        <div class="item">
+          <div class="item-header"><span class="item-num">07</span><span class="item-name">Hot Haru</span></div>
+          <p class="item-desc">Salmão envolto na massa crocante de harumaki, kani e cream cheese</p>
+        </div>
+        <div class="item">
+          <div class="item-header"><span class="item-num">08</span><span class="item-name">Hot Ebi Haru</span></div>
+          <p class="item-desc">Salmão envolto na massa de harumaki, camarão e cream cheese</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="regras">
+    <h3 class="regras-title">Regras do Rodízio</h3>
+    <ul class="regras-list">
+      <li>Os rodízios são apenas para consumo local, individual e intransferível.</li>
+      <li>Não são feitas alterações do rodízio.</li>
+      <li>O rodízio encerra às 23h00.</li>
+      <li>Crianças de 3 a 8 anos pagam 50% do valor do rodízio.</li>
+      <li>Em caso de sobra e o cliente queira levar, será cobrado: <strong>R$ 3,00</strong> por peça de sushi tradicional e Salmão Ball; <strong>R$ 4,00</strong> por peça de sushi especial; e valor integral do Mini Temaki (R$ 20), Joy (R$ 10), Niguiri (R$ 10) e Harumaki (R$ 6).</li>
+      <li>Todos os sushis podem ser pedidos em meia porção ou inteira.</li>
+      <li>Não são inclusos adicionais no rodízio.</li>
+      <li>Criança até 2 anos não paga.</li>
+      <li>Crianças a partir de 9 anos pagam o valor integral.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== ESPECIAL ===================== -->
+<section class="panel" data-tab="especial" data-active="false">
+  <div class="panel-header">
+    <div class="panel-title">RODÍZIO<br>ESPECIAL</div>
+    <div class="panel-subtitle">Tradicional + Especial · Das 18h às 23h</div>
+    <div class="panel-price">
+      <span class="label">VALOR</span>
+      <span class="value">R$ 129,00</span>
+    </div>
+  </div>
+
+  <div class="sections-grid">
+
+    <!-- Coluna 1 -->
+    <div>
+      <div class="section">
+        <h2 class="section-title">Entradas</h2>
+        <p class="section-hint">Limite de 2 por rodízio</p>
+        <div class="item"><div class="item-header"><span class="item-num">01</span><span class="item-name">Joy Salmão</span></div></div>
+        <div class="item"><div class="item-header"><span class="item-num">02</span><span class="item-name">Joy Ebi</span></div></div>
+        <div class="item"><div class="item-header"><span class="item-num">03</span><span class="item-name">Joy Shimeji</span></div></div>
+        <div class="item"><div class="item-header"><span class="item-num">04</span><span class="item-name">Niguiri de Salmão</span></div></div>
+        <div class="item"><div class="item-header"><span class="item-num">05</span><span class="item-name">Niguiri Camarão</span></div></div>
+        <div class="item"><div class="item-header"><span class="item-num">06</span><span class="item-name">Guioza de Camarão</span></div></div>
+        <div class="item"><div class="item-header"><span class="item-num">07</span><span class="item-name">Mini Poke de Salmão Grill</span></div></div>
+        <div class="item"><div class="item-header"><span class="item-num">08</span><span class="item-name">Mini Poke de Shimeji</span></div></div>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">Mini-Temakis</h2>
+        <p class="section-hint">Podem ser servidos na versão Hot — indique na observação</p>
+        <div class="item">
+          <div class="item-header"><span class="item-num">01</span><span class="item-name">Temaki Salmão c/ Cebolinha</span></div>
+          <p class="item-desc">Arroz, salmão, cebolinha e nori</p>
+        </div>
+        <div class="item">
+          <div class="item-header"><span class="item-num">02</span><span class="item-name">Temaki Philadelphia</span></div>
+          <p class="item-desc">Arroz, salmão, cream cheese e cebolinha</p>
+        </div>
+        <div class="item">
+          <div class="item-header"><span class="item-num">03</span><span class="item-name">Temaki Butterfly</span></div>
+          <p class="item-desc">Arroz, camarão empanado e cream cheese</p>
+        </div>
+        <div class="item">
+          <div class="item-header"><span class="item-num">04</span><span class="item-name">Temaki Taychi</span></div>
+          <p class="item-desc">Arroz, salmão, camarão, cream cheese e cebolinha</p>
+        </div>
+        <div class="item">
+          <div class="item-header"><span class="item-num">05</span><span class="item-name">Temaki Skin</span></div>
+          <p class="item-desc">Arroz, pele de salmão frito, cream cheese e cebolinha</p>
+        </div>
+        <div class="item">
+          <div class="item-header"><span class="item-num">06</span><span class="item-name">Temaki Shimeji</span></div>
+          <p class="item-desc">Shimeji, cebolinha, arroz e cream cheese</p>
+        </div>
+        <div class="item">
+          <div class="item-header"><span class="item-num">07</span><span class="item-name">Temaki Califórnia</span></div>
+          <p class="item-desc">Arroz, pepino, manga e kani</p>
+        </div>
+        <div class="item">
+          <div class="item-header"><span class="item-num">08</span><span class="item-name">Temaki Alho e Óleo</span></div>
+          <p class="item-desc">Arroz, camarão alho e óleo, cream cheese e alho torrado</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">Sobremesas</h2>
+        <p class="section-hint">Limite de 2 unidades por rodízio</p>
+        <div class="item">
+          <div class="item-header"><span class="item-num">01</span><span class="item-name">Taça de Sorvete</span></div>
+          <p class="item-desc">Sorvete de creme com calda de chocolate ou morango (cliente escolhe)</p>
+        </div>
+        <div class="item">
+          <div class="item-header"><span class="item-num">02</span><span class="item-name">Banana Empanada</span></div>
+          <p class="item-desc">Banana empanada com leite condensado e canela</p>
+        </div>
+        <div class="item">
+          <div class="item-header"><span class="item-num">03</span><span class="item-name">Harumaki Doce</span></div>
+          <p class="item-desc">Romeu e Julieta ou Doce de Leite</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Coluna 2 -->
+    <div>
+      <div class="section">
+        <h2 class="section-title">Novidades e Especiais</h2>
+        <p class="section-hint">Porção inteira 8 un · Meia porção 4 un</p>
+        <div class="item">
+          <div class="item-header"><span class="item-num">01</span><span class="item-name">Super Philadelphia</span></div>
+          <p class="item-desc">Arroz, salmão e cream cheese envolto com lâmina de salmão</p>
+        </div>
+        <div class="item">
+          <div class="item-header"><span class="item-num">02</span><span class="item-name">Super Ebi</span></div>
+          <p class="item-desc">Arroz, camarão empanado e cream cheese envolto com salmão</p>
+        </div>
+        <div class="item">
+          <div class="item-header"><span class="item-num">03</span><span class="item-name">Super Skin</span></div>
+          <p class="item-desc">Arroz, pele de salmão frita, cream cheese envolto com lâmina de salmão</p>
+        </div>
+        <div class="item">
+          <div class="item-header"><span class="item-num">04</span><span class="item-name">Taychi Roll</span></div>
+          <p class="item-desc">Arroz, salmão, camarão e cream cheese envolto de salmão e farofa do chefe</p>
+        </div>
+        <div class="item">
+          <div class="item-header"><span class="item-num">05</span><span class="item-name">Salmão Crispy</span></div>
+          <p class="item-desc">Arroz, nori, salmão, cream cheese, cebolinha e topping de couve crispy</p>
+        </div>
+        <div class="item">
+          <div class="item-header"><span class="item-num">06</span><span class="item-name">Ebi Crispy</span></div>
+          <p class="item-desc">Arroz, nori, camarão empanado, cream cheese, cebolinha e couve crispy</p>
+        </div>
+        <div class="item">
+          <div class="item-header"><span class="item-num">07</span><span class="item-name">Phila Fungi</span></div>
+          <p class="item-desc">Arroz, nori, salmão, shimeji, cream cheese e cebolinha</p>
+        </div>
+        <div class="item">
+          <div class="item-header"><span class="item-num">08</span><span class="item-name">Kani Especial</span></div>
+          <p class="item-desc">Kani com recheio de camarão empanado, cream cheese e maracujá</p>
+        </div>
+        <div class="item">
+          <div class="item-header"><span class="item-num">09</span><span class="item-name">Hot Cold Salmão</span></div>
+          <p class="item-desc">Sushi hot philadelphia, com patê de salmão, cream cheese e cebolinha</p>
+        </div>
+        <div class="item">
+          <div class="item-header"><span class="item-num">10</span><span class="item-name">Salmão Ebi Hot Especial <em style="font-weight:400; font-style:italic; color:var(--text-mute); font-size:14px;">(Empanado)</em></span></div>
+          <p class="item-desc">Camarão envolvido com salmão empanado, cream cheese e maracujá</p>
+        </div>
+        <div class="item">
+          <div class="item-header"><span class="item-num">11</span><span class="item-name">Ebi Double</span></div>
+          <p class="item-desc">Uramaki de camarão, camarão alho e óleo, cream cheese e cebolinha</p>
+        </div>
+        <div class="item">
+          <div class="item-header"><span class="item-num">12</span><span class="item-name">Amazon Green</span></div>
+          <p class="item-desc">Uramaki salmão com camarão, cream cheese coberto com lâmina de salmão, geleia de pimenta e couve crispy</p>
+        </div>
+        <div class="item">
+          <div class="item-header"><span class="item-num">13</span><span class="item-name">Hot Skin Chilli</span></div>
+          <p class="item-desc">Sushi skin empanado com geleia de pimenta</p>
+        </div>
+        <div class="item">
+          <div class="item-header"><span class="item-num">14</span><span class="item-name">Sushi Avocado Salmão Especial</span></div>
+          <p class="item-desc">Uramaki de salmão com lâmina de abacate, cream cheese, molho sweet chili e gergelim</p>
+        </div>
+        <div class="item">
+          <div class="item-header"><span class="item-num">15</span><span class="item-name">Hossomaki de Maracujá<span class="item-badge">Novo</span></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="footer-message">Evite desperdício</p>
+</section>
+
+<footer class="site-footer">
+  TAYCHÍ SUSHI BAR · MANAUS &nbsp;·&nbsp; RODÍZIO DAS 18H ÀS 23H
+</footer>
+
+</div>
+
+<script>
+  // Tabs
+  const tabs = document.querySelectorAll('.tab');
+  const panels = document.querySelectorAll('.panel');
+
+  function activate(name) {
+    tabs.forEach(t => {
+      const on = t.dataset.tab === name;
+      t.dataset.active = on;
+      t.setAttribute('aria-selected', on);
+    });
+    panels.forEach(p => p.dataset.active = (p.dataset.tab === name));
+    if (history.replaceState) {
+      history.replaceState(null, '', '#' + name);
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  tabs.forEach(t => t.addEventListener('click', () => activate(t.dataset.tab)));
+
+  // Deep-link via hash
+  const hash = (location.hash || '').replace('#','');
+  if (hash === 'especial' || hash === 'tradicional') activate(hash);
+</script>
+
+</body>
+</html>
