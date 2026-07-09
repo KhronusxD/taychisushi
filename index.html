@@ -75,37 +75,20 @@ header {
 }
 
 .logo {
-  display: inline-flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 6px;
+  display: inline-block;
+  margin-bottom: 10px;
+  line-height: 0;
 }
 
 .logo-mark {
-  width: 44px;
-  height: 44px;
-  flex-shrink: 0;
-}
-
-.logo-text {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 38px;
-  font-weight: 500;
-  letter-spacing: 1px;
-  line-height: 1;
-  color: var(--text);
-}
-
-.logo-sub {
+  height: 120px;
+  width: auto;
+  max-width: 240px;
   display: block;
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  font-weight: 400;
-  letter-spacing: 4px;
-  color: var(--text-mute);
-  text-transform: lowercase;
-  margin-top: 4px;
-  text-align: right;
+}
+
+@media (max-width: 640px) {
+  .logo-mark { height: 96px; }
 }
 
 .hero-title {
@@ -504,8 +487,6 @@ header {
   .container { padding: 18px 14px 44px; }
 
   header { padding: 18px 4px 24px; }
-  .logo-text { font-size: 32px; }
-  .logo-sub { font-size: 10px; letter-spacing: 3px; }
   .hero-title { letter-spacing: 3px; }
   .hero-hours { font-size: 11px; letter-spacing: 4px; }
 
@@ -558,19 +539,7 @@ header {
 
 <header>
   <div class="logo">
-    <svg class="logo-mark" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.6">
-      <path d="M32 6 L28 14 L36 14 Z" fill="currentColor"/>
-      <path d="M20 18 Q20 16 24 16 L40 16 Q44 16 44 18 L44 22 L20 22 Z" fill="currentColor"/>
-      <ellipse cx="32" cy="34" rx="14" ry="16" fill="currentColor"/>
-      <ellipse cx="32" cy="32" rx="7" ry="9" fill="var(--bg)"/>
-      <path d="M25 32 L28 32 M39 32 L36 32" stroke="var(--bg)" stroke-width="1.5"/>
-      <path d="M32 40 L32 46 M28 43 L36 43" stroke="var(--bg)" stroke-width="1"/>
-      <path d="M18 50 Q32 58 46 50" stroke="currentColor" stroke-width="1"/>
-    </svg>
-    <div>
-      <div class="logo-text">Taychí</div>
-      <div class="logo-sub">sushi bar</div>
-    </div>
+    <img class="logo-mark" src="logo-taychi.png" alt="Taychi Sushi Bar" width="240" height="120">
   </div>
   <h1 class="hero-title">CARDÁPIO DO RODÍZIO</h1>
   <p class="hero-hours">DAS 18H ÀS 23H</p>
