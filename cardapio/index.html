@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taychi Sushi Bar — Cardápio Completo</title>
+<meta name="description" content="Cardápio completo do Taychi Sushi Bar Manaus — entradas, sushi, temaki, poke, pratos quentes e bebidas.">
+<meta name="theme-color" content="#0a0507">
+
+<meta property="og:title" content="Taychi Sushi Bar — Cardápio">
+<meta property="og:description" content="Entradas · Sushi · Temaki · Poke · Pratos Quentes · Sobremesas · Bebidas">
+<meta property="og:type" content="website">
+<meta property="og:image" content="/logo-taychi.png">
+<link rel="icon" type="image/png" href="/logo-taychi.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+
+:root {
+  --bg: #0a0507;
+  --bg-card: #120809;
+  --bg-panel: #1a0a0c;
+  --bg-nav: rgba(10,5,7,0.92);
+  --border: #3a1518;
+  --border-soft: rgba(58,21,24,0.5);
+  --text: #f5ecec;
+  --text-dim: #b8a8a8;
+  --text-mute: #8a7676;
+  --red: #e2384a;
+  --red-soft: #c94a5a;
+  --gold: #d4af6a;
+  --gold-soft: #b89555;
+}
+
+html { font-size: 16px; scroll-behavior: smooth; scroll-padding-top: 100px; }
+@media (max-width: 500px) { html { font-size: 17px; scroll-padding-top: 130px; } }
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  line-height: 1.55;
+  min-height: 100vh;
+  -webkit-text-size-adjust: 100%;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(226,56,74,0.06), transparent 45%),
+    radial-gradient(circle at 80% 90%, rgba(212,175,106,0.05), transparent 45%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ============ HEADER ============ */
+.hero {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 40px 20px 30px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.hero .logo img { height: 96px; width: auto; max-width: 220px; display: inline-block; }
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 700;
+  letter-spacing: 4px;
+  margin-top: 14px;
+  color: var(--text);
+}
+.hero-sub {
+  font-size: 12px;
+  letter-spacing: 5px;
+  color: var(--text-mute);
+  margin-top: 10px;
+  text-transform: uppercase;
+}
+
+/* ============ STICKY NAV ============ */
+.nav-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--bg-nav);
+  backdrop-filter: saturate(150%) blur(14px);
+  -webkit-backdrop-filter: saturate(150%) blur(14px);
+  border-bottom: 1px solid var(--border-soft);
+  margin-top: 20px;
+}
+.nav-scroll {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 12px 18px;
+  max-width: 1200px;
+  margin: 0 auto;
+  scrollbar-width: none;
+}
+.nav-scroll::-webkit-scrollbar { display: none; }
+.nav-chip {
+  flex-shrink: 0;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  padding: 9px 16px;
+  font-family: inherit;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+.nav-chip:hover { color: var(--text); border-color: var(--red-soft); }
+.nav-chip.is-active {
+  background: rgba(226,56,74,0.15);
+  border-color: var(--red);
+  color: var(--text);
+}
+
+/* ============ CONTENT ============ */
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 30px 18px 60px;
+}
+
+/* Section (categoria macro) */
+.section {
+  margin-top: 60px;
+  scroll-margin-top: 100px;
+}
+.section:first-child { margin-top: 20px; }
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(30px, 5vw, 44px);
+  font-weight: 700;
+  letter-spacing: 5px;
+  text-align: center;
+  color: var(--red);
+  text-transform: uppercase;
+  padding: 14px 20px 20px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 30px;
+  background: linear-gradient(180deg, var(--bg-card), transparent);
+}
+
+/* Subsection (categoria interna) */
+.subsection { margin-top: 40px; }
+.subsection:first-of-type { margin-top: 0; }
+
+.subsection-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  letter-spacing: 5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 6px;
+  color: var(--gold);
+}
+
+.subsection-hint {
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-mute);
+  font-style: italic;
+  margin-bottom: 22px;
+  letter-spacing: 0.3px;
+}
+
+/* Grid de itens */
+.items {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+@media (min-width: 720px) {
+  .items { grid-template-columns: 1fr 1fr; gap: 6px 32px; }
+}
+
+/* Item individual */
+.item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 14px 4px;
+  border-bottom: 1px dashed rgba(255,255,255,0.06);
+}
+.item:last-child { border-bottom: none; }
+
+/* Placeholder de foto — display:none quando não tem imagem */
+.item-photo {
+  width: 72px;
+  height: 72px;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, #1a0a0c, #0f0507);
+  border: 1px solid var(--border-soft);
+  display: none;
+}
+.item:has(.item-photo img) .item-photo { display: block; }
+.item-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.item-body { flex: 1; min-width: 0; }
+
+.item-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+.item-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(18px, 4vw, 20px);
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.2;
+  flex: 1;
+}
+.item-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(17px, 3.6vw, 19px);
+  font-weight: 700;
+  color: var(--red);
+  white-space: nowrap;
+}
+.item-desc {
+  font-size: clamp(13px, 3.2vw, 14px);
+  color: var(--text-dim);
+  margin-top: 4px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+.item-meta {
+  font-size: 12px;
+  color: var(--text-mute);
+  font-style: italic;
+  margin-top: 3px;
+}
+.item-veg {
+  color: #7cb342;
+  font-size: 14px;
+  margin-left: 4px;
+}
+.item-badge {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 9px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  border-radius: 3px;
+  text-transform: uppercase;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+/* Item com variação de preço (ex.: 6un / 12un) */
+.item-variants {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+  font-size: 13px;
+}
+.item-variant {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  color: var(--text-dim);
+}
+.item-variant strong {
+  color: var(--red);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* Barcas / Combos com composição */
+.item.item-composition .item-name { font-size: clamp(19px, 4.2vw, 22px); }
+.item-composition-desc {
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-top: 6px;
+  line-height: 1.5;
+}
+.item-composition-count {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+/* Bloco de personalize */
+.custom-block {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 22px 20px;
+  margin: 24px 0;
+}
+.custom-block h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  color: var(--gold);
+  margin-bottom: 12px;
+  letter-spacing: 2px;
+}
+.custom-block .step { margin: 12px 0; }
+.custom-block .step-label {
+  font-size: 11px;
+  color: var(--text-mute);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.custom-block ul { padding-left: 18px; margin: 6px 0; }
+.custom-block li { color: var(--text-dim); font-size: 14px; padding: 2px 0; }
+.custom-block .price-tag {
+  display: inline-block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--red);
+  margin-top: 6px;
+}
+
+/* Voltar ao topo */
+.back-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 60;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1px solid var(--red);
+  color: var(--red);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s, transform 0.25s;
+  text-decoration: none;
+}
+.back-top.is-visible { opacity: 1; pointer-events: auto; }
+.back-top:hover { transform: translateY(-2px); background: rgba(226,56,74,0.15); }
+.back-top svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2.4; }
+
+/* Footer */
+.site-footer {
+  text-align: center;
+  padding: 46px 20px 12px;
+  color: var(--text-mute);
+  font-size: 11px;
+  letter-spacing: 2px;
+  border-top: 1px solid var(--border-soft);
+  margin-top: 60px;
+}
+.site-footer a { color: var(--text-dim); text-decoration: none; }
+.site-footer a:hover { color: var(--text); }
+
+@media (max-width: 500px) {
+  .hero { padding: 30px 16px 20px; }
+  .hero .logo img { height: 80px; }
+  .nav-scroll { padding: 10px 14px; }
+  .nav-chip { padding: 8px 14px; font-size: 11px; letter-spacing: 1.5px; }
+  .container { padding: 20px 14px 44px; }
+  .section-title { letter-spacing: 3px; padding: 12px 14px 16px; }
+  .subsection-title { font-size: 17px; letter-spacing: 3px; }
+  .item { padding: 12px 2px; gap: 12px; }
+  .item-photo { width: 60px; height: 60px; }
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="logo"><img src="/logo-taychi.png" alt="Taychi Sushi Bar" width="220"></div>
+  <h1 class="hero-title">CARDÁPIO</h1>
+  <p class="hero-sub">Manaus/AM · Aberto todos os dias</p>
+</header>
+
+<nav class="nav-wrap">
+  <div class="nav-scroll" id="navScroll">
+    <a class="nav-chip" href="#entradas" data-target="entradas">Entradas</a>
+    <a class="nav-chip" href="#joy-maki" data-target="joy-maki">Joy · Maki · Niguiri</a>
+    <a class="nav-chip" href="#especiais-sushi" data-target="especiais-sushi">Hot Dog · Burguer</a>
+    <a class="nav-chip" href="#sashimi" data-target="sashimi">Sashimi</a>
+    <a class="nav-chip" href="#sushi" data-target="sushi">Sushi</a>
+    <a class="nav-chip" href="#barcas" data-target="barcas">Barcas · Combos</a>
+    <a class="nav-chip" href="#temaki" data-target="temaki">Temaki</a>
+    <a class="nav-chip" href="#poke" data-target="poke">Poke</a>
+    <a class="nav-chip" href="#quentes" data-target="quentes">Pratos Quentes</a>
+    <a class="nav-chip" href="#sobremesas" data-target="sobremesas">Sobremesas</a>
+    <a class="nav-chip" href="#bebidas" data-target="bebidas">Bebidas</a>
+  </div>
+</nav>
+
+<div class="container">
+
+<!-- ====================== ENTRADAS ====================== -->
+<section class="section" id="entradas">
+  <h2 class="section-title">Entradas</h2>
+
+  <div class="subsection">
+    <h3 class="subsection-title">Entradas</h3>
+    <div class="items">
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Missoshiro</span><span class="item-price">R$ 25</span></div><p class="item-desc">Sopa tradicional de missô com algas marinhas e queijo tofu.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Polvo</span><span class="item-price">R$ 45</span></div><p class="item-desc">Polvo salteado na manteiga de ervas e raspas de limão siciliano.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Guy Tan</span><span class="item-price">R$ 40</span></div><p class="item-desc">Língua bovina temperada com alho e cebolinha na chapa.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Shimeji</span><span class="item-price">R$ 38</span></div><p class="item-desc">Cogumelo shimeji salteado na manteiga e cebolinha na chapa.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Ebi Crispy</span><span class="item-price">R$ 48</span></div><p class="item-desc">Cogumelos shimeji e shitaki salteado na manteiga e cebolinha na chapa.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Salmão Ball</span><span class="item-price">R$ 28</span></div><p class="item-desc">Bolinhos de salmão empanado (6 unidades).</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Chips Shake</span><span class="item-price">R$ 35</span></div><p class="item-desc">Chips de batata doce com tartar de salmão e crispy de batata (5 unidades).</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Oniguiri</span><span class="item-price">R$ 35</span></div><p class="item-desc">Bolinhos de arroz japonês com recheio de salmão grelhado (2 unidades).</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Guioza</span><span class="item-price">R$ 30</span></div><p class="item-desc">Pastelzinho chinês com recheio de carne suína ou bovina (4 unidades).</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Harumaki</span><span class="item-price">R$ 38</span></div><p class="item-desc">Porção com 4 unidades. Sabores: queijo, carne com legumes, camarão, romeu e julieta, morango com chocolate.</p></div></article>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <h3 class="subsection-title">Tempurás</h3>
+    <div class="items">
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Camarão Crock</span></div><p class="item-desc">Camarões empanados.</p><div class="item-variants"><span class="item-variant">6 un <strong>R$ 50</strong></span><span class="item-variant">12 un <strong>R$ 90</strong></span></div></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Camarão Crock Salmão</span><span class="item-price">R$ 75</span></div><p class="item-desc">Camarões empanados envolvidos com lâminas de salmão (6 un).</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Camarão ao Alho e Óleo</span><span class="item-price">R$ 70</span></div><p class="item-desc">Camarão salteado ao alho e óleo (12 un).</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Lula Empanada</span><span class="item-price">R$ 48</span></div><p class="item-desc">Anéis de lula empanados (6 un).</p></div></article>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <h3 class="subsection-title">Sunomono</h3>
+    <div class="items">
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Sunomono Simples</span><span class="item-price">R$ 25</span></div><p class="item-desc">Salada de pepino com gergelim e molho oriental.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Sunomono de Salmão</span><span class="item-price">R$ 55</span></div><p class="item-desc">Salada de pepino com gergelim, molho oriental e salmão.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Sunomono Taychi</span><span class="item-price">R$ 60</span></div><p class="item-desc">Salada de pepino com gergelim, molho oriental, salmão e camarão.</p></div></article>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <h3 class="subsection-title">Ceviche</h3>
+    <div class="items">
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Ceviche Salmão</span><span class="item-price">R$ 65</span></div><p class="item-desc">Salmão em cubos, cebola roxa, cebolinha, tomate cereja, ao molho do chefe.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Ceviche Taychi</span><span class="item-price">R$ 69</span></div><p class="item-desc">Salmão em cubos, camarão, cebola roxa, cebolinha, tomate cereja, ao molho do chefe.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Ceviche Misto</span><span class="item-price">R$ 70</span></div><p class="item-desc">Salmão em cubos, kani e polvo, cebola roxa, cebolinha, tomate cereja, ao molho do chefe.</p></div></article>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <h3 class="subsection-title">Tartares</h3>
+    <div class="items">
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Tartar de Salmão</span><span class="item-price">R$ 65</span></div><p class="item-desc">Salmão em cubos ao molho páprico, com molho do chefe e crispy de cenoura.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Tartar de Salmão (Picante)</span><span class="item-price">R$ 62</span></div><p class="item-desc">Salmão em cubos com maionese, cream cheese, gengibre e cebolinha, ao molho picante e crispy de alho poró.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Tartar de Salmão Grelhado</span><span class="item-price">R$ 48</span></div><p class="item-desc">Salmão grelhado com pimentões amarelo e vermelho e cream cheese, finalizado com molho cítrico de laranja.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Tartar de Philadelphia</span><span class="item-price">R$ 55</span></div><p class="item-desc">Salmão em cubos com cream cheese, cebolinha e arroz com tempero japonês.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Tartar Taychi Premium</span><span class="item-price">R$ 85</span></div><p class="item-desc">Cubo de salmão, cream cheese e camarão ao alho e óleo, com crispy de couve.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Tartar de Shimeji</span><span class="item-price">R$ 55</span></div><p class="item-desc">Abacaxi caramelizado com shimeji na manteiga, crispy de couve, cebolinha e molho do chefe.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== JOY · MAKI · NIGUIRI ====================== -->
+<section class="section" id="joy-maki">
+  <h2 class="section-title">Joy · Maki · Niguiri</h2>
+
+  <div class="subsection">
+    <h3 class="subsection-title">Joy</h3>
+    <p class="subsection-hint">4 unidades</p>
+    <div class="items">
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Joy Salmão</span><span class="item-price">R$ 46</span></div><p class="item-desc">Rolinho de arroz coberto por tartar de salmão com cream cheese e cebolinha.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Joy Shimeji</span><span class="item-price">R$ 40</span></div><p class="item-desc">Rolinho de arroz coberto por shimeji e cebolinha em cima.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Joy Quetom</span><span class="item-price">R$ 34</span></div><p class="item-desc">Rolinho de arroz coberto por cream cheese, tomate e queijo.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Joy Crispy</span><span class="item-price">R$ 36</span></div><p class="item-desc">Rolinho de arroz coberto por cream cheese e crispy de couve.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Joy Chili</span><span class="item-price">R$ 38</span></div><p class="item-desc">Rolinho de arroz coberto por cream cheese e geleia de pimenta.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Joy Ebi</span><span class="item-price">R$ 50</span></div><p class="item-desc">Rolinho de arroz coberto por camarão ao alho e óleo, cream cheese e cebolinha.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Joy Tost Maracujá</span><span class="item-price">R$ 48</span></div><p class="item-desc">Rolinho de arroz coberto por tartar de salmão maçaricado e geleia de maracujá.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Joy Fungi</span><span class="item-price">R$ 48</span></div><p class="item-desc">Rolinho de arroz coberto por cream cheese, shimeji, queijo, molho especial e castanhas.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Joy Salmão Supreme</span><span class="item-price">R$ 48</span></div><p class="item-desc">Rolinho de arroz coberto por tartar de salmão com gengibre e crispy de alho poró.</p></div></article>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <h3 class="subsection-title">Makis</h3>
+    <p class="subsection-hint">6 unidades</p>
+    <div class="items">
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Maki Supreme</span><span class="item-price">R$ 72</span></div><p class="item-desc">Lâminas de salmão maçaricado envolvido no camarão com cream cheese, shimeji e crispy em cima.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Maki Taychi</span><span class="item-price">R$ 68</span></div><p class="item-desc">Lâminas de salmão maçaricado envolvido no camarão com cream cheese e molho teriyaki.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Maki Shimeji</span><span class="item-price">R$ 58</span></div><p class="item-desc">Lâminas de salmão envolvido no shimeji com cream cheese e molho teriyaki.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Maki Haru</span><span class="item-price">R$ 52</span></div><p class="item-desc">Lâminas de salmão envolvido no crispy haru e molho agridoce picante.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Maki Piña</span><span class="item-price">R$ 52</span></div><p class="item-desc">Lâminas de salmão envolvido no abacaxi com cream cheese, molho de maracujá e teriyaki.</p></div></article>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <h3 class="subsection-title">Niguiri</h3>
+    <p class="subsection-hint">2 unidades</p>
+    <div class="items">
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Niguiri Supreme</span><span class="item-price">R$ 32</span></div><p class="item-desc">Camarão crocante com cream cheese com lâmina de salmão, molho especial, crispy de alho poró e raspa de limão siciliano.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Niguiri Salmão</span><span class="item-price">R$ 20</span></div></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Niguiri Salmão Maçaricado</span><span class="item-price">R$ 24</span></div></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Niguiri Camarão</span><span class="item-price">R$ 20</span></div></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Niguiri Kani</span><span class="item-price">R$ 18</span></div></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== HOT DOG · BURGUER · PETISCOS ====================== -->
+<section class="section" id="especiais-sushi">
+  <h2 class="section-title">Sushi Especiais</h2>
+
+  <div class="subsection">
+    <h3 class="subsection-title">Sushi Hot Dog</h3>
+    <p class="subsection-hint">Sushi empanado com recheio</p>
+    <div class="items">
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Hot Dog Salmão</span><span class="item-price">R$ 62</span></div><p class="item-desc">Recheio de salmão com cream cheese e cebolinha.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Hot Dog Salmão Grill</span><span class="item-price">R$ 48</span></div><p class="item-desc">Recheio de patê de salmão grelhado com cream cheese e cebolinha.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Hot Dog Salmão e Shimeji</span><span class="item-price">R$ 68</span></div><p class="item-desc">Recheio de salmão e shimeji com cream cheese e cebolinha.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Hot Dog Camarão</span><span class="item-price">R$ 62</span></div><p class="item-desc">Recheio de camarão com cream cheese.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Hot Dog Shimeji</span><span class="item-price">R$ 52</span></div><p class="item-desc">Recheio de shimeji e cebolinha.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Hot Dog Taychi</span><span class="item-price">R$ 68</span></div><p class="item-desc">Recheio de salmão e camarão com cream cheese.</p></div></article>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <h3 class="subsection-title">Sushi Burguer</h3>
+    <p class="subsection-hint">Sanduíche empanado feito com arroz e recheio</p>
+    <div class="items">
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Sushi Burguer Salmão</span><span class="item-price">R$ 62</span></div><p class="item-desc">Recheio de salmão com cream cheese, cebolinha e crispy de couve.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Sushi Burguer Salmão Grill</span><span class="item-price">R$ 48</span></div><p class="item-desc">Recheio de patê de salmão grelhado com cream cheese, cebolinha e crispy de couve.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Sushi Burguer Salmão e Shimeji</span><span class="item-price">R$ 68</span></div><p class="item-desc">Recheio de salmão e shimeji com cream cheese, cebolinha e crispy de couve.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Sushi Burguer Camarão</span><span class="item-price">R$ 62</span></div><p class="item-desc">Recheio de camarão com cream cheese e crispy de couve.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Sushi Burguer Shimeji</span><span class="item-price">R$ 52</span></div><p class="item-desc">Recheio de shimeji, cream cheese, cebolinha e crispy de couve.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Sushi Burguer Taychi</span><span class="item-price">R$ 68</span></div><p class="item-desc">Recheio de salmão e camarão com cream cheese e crispy de couve.</p></div></article>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <h3 class="subsection-title">Petiscos</h3>
+    <div class="items">
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Calabresa Acebolada</span><span class="item-price">R$ 30</span></div></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Calabresa Acebolada com Fritas</span><span class="item-price">R$ 40</span></div></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Filé Acebolado</span><span class="item-price">R$ 48</span></div></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Filé Acebolado com Fritas</span><span class="item-price">R$ 58</span></div></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Batata Frita</span><span class="item-price">R$ 20</span></div></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Mix Filé, Calabresa e Batata Frita</span><span class="item-price">R$ 78</span></div></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Bolinho de Bacalhau</span><span class="item-price">R$ 48</span></div><p class="item-desc">6 unidades.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== SASHIMI ====================== -->
+<section class="section" id="sashimi">
+  <h2 class="section-title">Sashimi</h2>
+  <div class="subsection">
+    <div class="items">
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Salmão</span><span class="item-price">R$ 52</span></div><p class="item-desc">6 fatias de salmão fresco.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Salmão Maçaricado</span><span class="item-price">R$ 54</span></div><p class="item-desc">6 fatias de salmão maçaricado.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Barriga de Salmão</span><span class="item-price">R$ 64</span></div><p class="item-desc">6 fatias de salmão maçaricado.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Salmão ao Molho do Chefe</span><span class="item-price">R$ 48</span></div><p class="item-desc">6 cortes finos de salmão ao molho do chefe, crispy de batata, cebolinha e pimenta vermelha.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Salmão Slim</span><span class="item-price">R$ 50</span></div><p class="item-desc">6 cortes finos com bordas maçaricadas, azeite trufado, gengibre e cebolinha picada.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Shake Batayak</span><span class="item-price">R$ 60</span></div><p class="item-desc">6 fatias de salmão ao molho de manteiga e shoyo.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Maracanela</span><span class="item-price">R$ 62</span></div><p class="item-desc">6 fatias de salmão com molho de maracujá e canela.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Usuzukuri</span><span class="item-price">R$ 75</span></div><p class="item-desc">20 cortes de carpaccio de salmão com molho do chef e raspa de limão siciliano.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Empanado</span><span class="item-price">R$ 62</span></div><p class="item-desc">6 fatias de salmão empanado com cream cheese, shimeji, gergelim e molho rosé.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Ebi Crost</span><span class="item-price">R$ 75</span></div><p class="item-desc">6 fatias de salmão levemente maçaricado com crosta de camarão e cream cheese.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Gergelim e Crispy</span><span class="item-price">R$ 65</span></div><p class="item-desc">6 fatias com crosta de gergelim ao molho apimentado, com crispy especial.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Polvo</span><span class="item-price">R$ 52</span></div><p class="item-desc">6 fatias de polvo.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Camarão</span><span class="item-price">R$ 45</span></div><p class="item-desc">6 sashimi de camarão.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Kimbap</span><span class="item-price">R$ 55</span></div><p class="item-desc">Pepino, cenoura, nabo, tamago, filé de carne, kani, com arroz temperado e nori por fora.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== SUSHI ====================== -->
+<section class="section" id="sushi">
+  <h2 class="section-title">Sushi</h2>
+
+  <div class="subsection">
+    <h3 class="subsection-title">Hossomaki</h3>
+    <div class="items">
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Salmão</span><span class="item-price">R$ 38</span></div><p class="item-desc">Salmão.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Philadélfia</span><span class="item-price">R$ 40</span></div><p class="item-desc">Salmão com cream cheese e cebolinha.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Maracujá</span><span class="item-price">R$ 42</span></div><p class="item-desc">Salmão com cream cheese e geleia de maracujá.</p></div></article>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <h3 class="subsection-title">Uramakis Tradicionais</h3>
+    <div class="items">
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Philadelphia</span><span class="item-price">R$ 42</span></div><p class="item-desc">Salmão com cream cheese e cebolinha.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Butterfly</span><span class="item-price">R$ 40</span></div><p class="item-desc">Camarão empanado com cream cheese.</p></div></article>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <h3 class="subsection-title">Frescos</h3>
+    <div class="items">
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Skin</span><span class="item-price">R$ 22</span></div><p class="item-desc">Uramaki de pele de salmão crocante com cream cheese.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Califórnia</span><span class="item-price">R$ 34</span></div><p class="item-desc">Uramaki de pepino, manga, kani e cream cheese.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Grill</span><span class="item-price">R$ 35</span></div><p class="item-desc">Uramaki de salmão grelhado com cream cheese, cebolinha e crispy de batata.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Shimeji</span><span class="item-price">R$ 32</span></div><p class="item-desc">Uramaki de shimeji, cream cheese e cebolinha.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Califórnia Salmão</span><span class="item-price">R$ 40</span></div><p class="item-desc">Uramaki de salmão, pepino, manga, kani e cream cheese.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Taychi</span><span class="item-price">R$ 42</span></div><p class="item-desc">Uramaki de salmão, camarão empanado e cream cheese.</p></div></article>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <h3 class="subsection-title">Hot's</h3>
+    <div class="items">
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Hot Philadelfia</span><span class="item-price">R$ 45</span></div><p class="item-desc">Sushi philadelfia empanado.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Hot Butterfly</span><span class="item-price">R$ 43</span></div><p class="item-desc">Sushi butterfly empanado.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Hot Skin</span><span class="item-price">R$ 26</span></div><p class="item-desc">Sushi skin empanado.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Hot Shimeji</span><span class="item-price">R$ 35</span></div><p class="item-desc">Sushi shimeji empanado.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Hot Haru</span><span class="item-price">R$ 45</span></div><p class="item-desc">Sushi na massa do harumaki com recheio de salmão, kani e cream cheese.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Hot Skin Chili</span><span class="item-price">R$ 30</span></div><p class="item-desc">Sushi skin empanado com geleia de pimenta.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Hot Grill</span><span class="item-price">R$ 38</span></div><p class="item-desc">Salmão grelhado com cream cheese e cebolinha (empanado).</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Hot Morango</span><span class="item-price">R$ 33</span></div><p class="item-desc">Sushi com arroz, morango, doce de leite ou brigadeiro (empanado).</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Hot Taychi</span><span class="item-price">R$ 45</span></div><p class="item-desc">Sushi Taychi empanado.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Hot Philaskin</span><span class="item-price">R$ 40</span></div><p class="item-desc">Salmão e skin crocante com cream cheese (empanado).</p></div></article>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <h3 class="subsection-title">Especiais</h3>
+    <div class="items">
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Super Ebi</span><span class="item-price">R$ 46</span></div><p class="item-desc">Uramaki de camarão crock e cream cheese com lâmina de salmão e farofa do chefe.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Super Philadelfia</span><span class="item-price">R$ 46</span></div><p class="item-desc">Uramaki de salmão e cream cheese com lâmina de salmão e farofa do chefe.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Taychi Roll</span><span class="item-price">R$ 48</span></div><p class="item-desc">Uramaki de salmão e camarão com cream cheese, lâmina de salmão e farofa do chefe.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Super Skin</span><span class="item-price">R$ 35</span></div><p class="item-desc">Uramaki de skin crocante, cream cheese com lâmina de salmão e farofa do chefe.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Hot Haru Salmão Ebi</span><span class="item-price">R$ 48</span></div><p class="item-desc">Sushi envolto na massa do harumaki com recheio de salmão, camarão e cream cheese.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Kani Especial</span><span class="item-price">R$ 44</span></div><p class="item-desc">Sushi envolto de kani com recheio de salmão crock, cream cheese e maracujá (6 un).</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Hot Kani Especial</span><span class="item-price">R$ 48</span></div><p class="item-desc">Sushi envolto de kani com recheio de salmão crock, cream cheese e maracujá (6 un).</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Phila Fungi</span><span class="item-price">R$ 48</span></div><p class="item-desc">Uramaki philadélfia com cream cheese e toppen de shimeji e cebolinha.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Salmão Crispy</span><span class="item-price">R$ 48</span></div><p class="item-desc">Uramaki philadélfia com patê de salmão e couve crispy.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Ebi Crispy</span><span class="item-price">R$ 50</span></div><p class="item-desc">Uramaki ebi com patê de camarão e couve crispy.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Ebi Double</span><span class="item-price">R$ 50</span></div><p class="item-desc">Uramaki de camarão crock, cream cheese, toppen de camarão e cebolinha.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Cold Salmão</span><span class="item-price">R$ 48</span></div><p class="item-desc">Uramaki philadélfia, com patê de salmão, cream cheese e cebolinha.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Hot Fungi Salmão</span><span class="item-price">R$ 48</span></div><p class="item-desc">Sushi hot shimeji, com patê de salmão, cogumelos por cima e castanha crocante.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Hot &amp; Cold Salmão</span><span class="item-price">R$ 49</span></div><p class="item-desc">Sushi hot philadélfia, com patê de salmão, cream cheese e cebolinha.</p></div></article>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <h3 class="subsection-title">Premium</h3>
+    <div class="items">
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Amazon Green</span><span class="item-price">R$ 52</span></div><p class="item-desc">Uramaki salmão com camarão e cream cheese, coberto com lâmina de salmão, crispy de couve e molho agridoce picante.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Taychi Trio</span><span class="item-price">R$ 52</span></div><p class="item-desc">Sushi recheado com salmão, camarão, kani e tarê, coberto com salmão, camarão, kani intercalados.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Crispy Haru</span><span class="item-price">R$ 50</span></div><p class="item-desc">Uramaki salmão com camarão, cream cheese, tarê, coberto com lâmina de salmão e crispy de haru.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Phila Supreme</span><span class="item-price">R$ 55</span></div><p class="item-desc">Uramaki especial com salmão, arroz e muito cream cheese.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Phila Ebi Especial</span><span class="item-price">R$ 60</span></div><p class="item-desc">Sushi hot philadélfia com patê de salmão, cream cheese e cebolinha, e camarão em cima.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Amazon Solimões</span><span class="item-price">R$ 52</span></div><p class="item-desc">Uramaki salmão com camarão e cream cheese, coberto com lâmina de salmão, crispy de batata e molho agridoce picante.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Ebi Ceviche</span><span class="item-price">R$ 50</span></div><p class="item-desc">Uramaki de camarão empanado com toppen de ceviche de salmão.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Salmão Especial</span><span class="item-price">R$ 58</span></div><p class="item-desc">Hossomaki de salmão especial, arroz, com cream cheese e cebolinha.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Phila Cream</span><span class="item-price">R$ 52</span></div><p class="item-desc">Uramaki philadélfia envolto com cream cheese, gergelim e cebolinha.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Stock Crab</span><span class="item-price">R$ 52</span></div><p class="item-desc">Uramaki de caranguejo com patê de caranguejo por cima.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Ebi Roll Salmão</span><span class="item-price">R$ 58</span></div><p class="item-desc">Uramaki de salmão empanado, cream cheese, coberto com lâmina de camarão, gergelim e molho teriyaki.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Phila Skin Roll</span><span class="item-price">R$ 52</span></div><p class="item-desc">Uramaki philaskin especial coberto com lâmina de skin, cream cheese e pimenta biquinho.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Phila Roll Maçaricado</span><span class="item-price">R$ 65</span></div><p class="item-desc">Sushi de salmão recheado com risoto de atum, com crispy de cenoura.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Salmão Ebi Brutus</span><span class="item-price">R$ 65</span></div><p class="item-desc">Hossomaki de salmão com camarão empanado, sem arroz.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== BARCAS E COMBOS ====================== -->
+<section class="section" id="barcas">
+  <h2 class="section-title">Barcas &amp; Combos</h2>
+
+  <div class="subsection">
+    <h3 class="subsection-title">Barcas</h3>
+    <div class="items">
+      <article class="item item-composition"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Barca Cold</span><span class="item-price">R$ 115</span></div><span class="item-composition-count">32 peças</span><p class="item-composition-desc">10 sushi philadelfia, 10 sushi butterfly, 5 sushi kani, 5 sushi skin, 2 niguiri salmão.</p></div></article>
+      <article class="item item-composition"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Barca Hot</span><span class="item-price">R$ 125</span></div><span class="item-composition-count">32 peças</span><p class="item-composition-desc">10 hot philadelfia, 10 hot butterfly, 5 hot kani, 5 hot skin, 2 salmão ball.</p></div></article>
+      <article class="item item-composition"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Barca Samurai</span><span class="item-price">R$ 150</span></div><span class="item-composition-count">40 peças</span><p class="item-composition-desc">10 sushi butterfly, 10 sushi philadelphia, 5 sushi skin, 5 sushi super skin, 5 hot philadelphia, 3 joy salmão crispy, 2 salmão ball.</p></div></article>
+      <article class="item item-composition"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Barca Taychi</span><span class="item-price">R$ 280</span></div><span class="item-composition-count">45 peças</span><p class="item-composition-desc">10 sushi amazon uramaki, 5 sushi super philadelphia maçaricado, 5 hot haru, 5 sushi taychi, 5 hossomaki de maracujá, 3 joy salmão, 3 joy shimeji, 3 maki taychi, 6 peças de sashimi.</p></div></article>
+      <article class="item item-composition"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Barca Premium</span><span class="item-price">R$ 400</span></div><span class="item-composition-count">65 peças</span><p class="item-composition-desc">5 hot philadelfia, 5 philadelfia, 5 uramaki skin, 10 hot haru, 5 sushi hot cold salmão, 5 hot kani especial, 5 taychi roll, 5 camarão crock, 2 niguiri salmão, 2 niguiri salmão maçaricado, 4 maki piña, 2 joy shimeji, 2 joy salmão, 2 joy ebi, 6 sashimi.</p></div></article>
+    </div>
+  </div>
+
+  <div class="custom-block">
+    <h4>Personalize sua barca</h4>
+    <p style="color:var(--text-dim);font-size:14px;margin-bottom:14px;">A partir de 50 peças, variedades a critério do cliente.</p>
+    <ul style="list-style:none;padding:0;">
+      <li style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px dashed rgba(255,255,255,0.05);"><span>Sushi Tradicional — 5 peças</span><strong style="color:var(--red);">R$ 22</strong></li>
+      <li style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px dashed rgba(255,255,255,0.05);"><span>Sushi Especial — 5 peças</span><strong style="color:var(--red);">R$ 25</strong></li>
+      <li style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px dashed rgba(255,255,255,0.05);"><span>Sushi Premium — 5 peças</span><strong style="color:var(--red);">R$ 30</strong></li>
+      <li style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px dashed rgba(255,255,255,0.05);"><span>Sashimi — 1 corte</span><strong style="color:var(--red);">R$ 10</strong></li>
+      <li style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px dashed rgba(255,255,255,0.05);"><span>Joy ou Niguiri — 1 peça</span><strong style="color:var(--red);">R$ 8</strong></li>
+      <li style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px dashed rgba(255,255,255,0.05);"><span>Camarão Crock — 1 unidade</span><strong style="color:var(--red);">R$ 8</strong></li>
+      <li style="display:flex;justify-content:space-between;padding:6px 0;"><span>Crispy Couve/Batata</span><strong style="color:var(--red);">R$ 5</strong></li>
+    </ul>
+    <p style="color:var(--text-mute);font-size:12px;font-style:italic;margin-top:12px;">Não estão inclusos entradas, temakis e sobremesa.</p>
+  </div>
+
+  <div class="subsection">
+    <h3 class="subsection-title">Combos</h3>
+    <div class="items">
+      <article class="item item-composition"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Combo Yasuke</span><span class="item-price">R$ 110</span></div><span class="item-composition-count">26 peças</span><p class="item-composition-desc">5 uramaki philadelphia, 5 uramaki skin, 10 amazon green, 2 niguiri salmão, 2 salmão ball cheese, 2 joy quetom.</p></div></article>
+      <article class="item item-composition"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Combo Oda</span><span class="item-price">R$ 110</span></div><span class="item-composition-count">10 peças</span><p class="item-composition-desc">1 temaki philadelphia com gergelim, 1 temaki patê grill, 2 sushi philadelfia, 1 niguiri camarão, 2 niguiri salmão, 2 sushi philadelphia patê picante, 1 poke de salmão, shimeji e camarão.</p></div></article>
+      <article class="item item-composition"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Combo Tokugawa</span><span class="item-price">R$ 105</span></div><span class="item-composition-count">20 peças</span><p class="item-composition-desc">5 sushi butterfly, 5 sushi hot butterfly, 2 niguiri camarão, 2 joy ebi, 6 camarão crock.</p></div></article>
+      <article class="item item-composition"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Combo Musashi</span><span class="item-price">R$ 120</span></div><span class="item-composition-count">20 peças</span><p class="item-composition-desc">5 sushi super philadelphia maçaricado, 3 sashimi, 2 niguiri salmão, 2 joy pitaya, 2 joy crispy de couve, 4 camarão crock, 2 harumaki de camarão.</p></div></article>
+      <article class="item item-composition"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Combo Salmon</span><span class="item-price">R$ 110</span></div><span class="item-composition-count">20 peças</span><p class="item-composition-desc">5 philadelfia, 5 sushi hot philadelfia, 2 niguiri salmão, 4 sashimi salmão, 2 joy salmão, 2 joy salmão crispy.</p></div></article>
+      <article class="item item-composition"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Combo Philas</span><span class="item-price">R$ 100</span></div><span class="item-composition-count">18 peças</span><p class="item-composition-desc">3 sashimi de salmão, 5 sushi super skin, 5 sushi philadelfia, 3 joy geleia de pimenta, 2 sushi phila ebi especial.</p></div></article>
+      <article class="item item-composition"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Combo Grill</span><span class="item-price">R$ 95</span></div><span class="item-composition-count">15 peças</span><p class="item-composition-desc">5 sushi grill, 5 sushi hot grill, 1 mini temaki hot grill, 2 camarão crock e 2 salmão ball.</p></div></article>
+      <article class="item item-composition"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Combo Temaki</span><span class="item-price">R$ 75</span></div><span class="item-composition-count">3 peças</span><p class="item-composition-desc">3 mini temaki: philadelphia, ebi e skin mix.</p></div></article>
+      <article class="item item-composition"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Combo Salmão Mix</span><span class="item-price">R$ 85</span></div><span class="item-composition-count">14 peças</span><p class="item-composition-desc">5 super skin, 5 phila crispy, 2 niguiri salmão, 2 maki taychi.</p></div></article>
+      <article class="item item-composition"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Combo Ebi Cali</span><span class="item-price">R$ 120</span></div><span class="item-composition-count">30 peças</span><p class="item-composition-desc">10 sushi califórnia salmão, 10 phila ebi especial, 10 super skin.</p></div></article>
+      <article class="item item-composition"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Combo Supreme</span><span class="item-price">R$ 130</span></div><span class="item-composition-count">15 peças</span><p class="item-composition-desc">2 niguiri de salmão, 2 niguiri supreme, 2 joy shimeji, 2 joy crispy, 2 maki supreme, 2 maki piña, 3 sashimi.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== TEMAKI ====================== -->
+<section class="section" id="temaki">
+  <h2 class="section-title">Temaki</h2>
+
+  <div class="subsection">
+    <h3 class="subsection-title">Tradicionais</h3>
+    <div class="items">
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Salmão Simples</span><span class="item-price">R$ 35</span></div><p class="item-desc">Arroz, nori e salmão.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Salmão com Cebolinha</span><span class="item-price">R$ 38</span></div><p class="item-desc">Arroz, nori, salmão e cebolinha.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Salmão Grill</span><span class="item-price">R$ 35</span></div><p class="item-desc">Arroz, nori, patê de salmão grelhado, cream cheese e cebolinha.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Tempurá de Salmão</span><span class="item-price">R$ 40</span></div><p class="item-desc">Arroz, nori, salmão empanado, cebolinha e cream cheese.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Philadelphia</span><span class="item-price">R$ 42</span></div><p class="item-desc">Arroz, nori, pepino, manga, kani e cream cheese.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Butterfly</span><span class="item-price">R$ 40</span></div><p class="item-desc">Arroz, nori, camarão crock e cream cheese.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Shimeji</span><span class="item-price">R$ 35</span></div><p class="item-desc">Arroz, nori, shimeji na manteiga, cream cheese e cebolinha.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Skin</span><span class="item-price">R$ 28</span></div><p class="item-desc">Arroz, nori, pele de salmão frita, cebolinha e cream cheese.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Califórnia</span><span class="item-price">R$ 34</span></div><p class="item-desc">Arroz, nori, pepino, manga, kani e cream cheese.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Tri Sabores</span><span class="item-price">R$ 55</span></div><p class="item-desc">Arroz, nori, salmão, camarão empanado e shimeji, cebolinha e cream cheese.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Hot Philadelphia</span><span class="item-price">R$ 45</span></div><p class="item-desc">Arroz, nori, salmão, cream cheese e cebolinha (empanado).</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Hot Butterfly</span><span class="item-price">R$ 44</span></div><p class="item-desc">Arroz, nori, salmão, cream cheese e cebolinha (empanado).</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Empanação</span><span class="item-price">R$ 6</span></div><p class="item-desc">Empanação de qualquer temaki.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Light</span><span class="item-price">R$ 65</span></div><p class="item-desc">Nori e salmão em cubos.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Philadelphia Light</span><span class="item-price">R$ 68</span></div><p class="item-desc">Nori, salmão, cebolinha e cream cheese.</p></div></article>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <h3 class="subsection-title">Especiais</h3>
+    <div class="items">
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Samurai</span><span class="item-price">R$ 55</span></div><p class="item-desc">Arroz, nori, camarão ao alho e óleo, e patê de salmão com cream cheese e cebolinha.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Salmão e Shimeji</span><span class="item-price">R$ 46</span></div><p class="item-desc">Arroz, nori, shimeji, patê de salmão, cream cheese e cebolinha.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Ebi e Shimeji</span><span class="item-price">R$ 46</span></div><p class="item-desc">Arroz, nori, shimeji, camarão empanado, cream cheese e cebolinha.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Taychi</span><span class="item-price">R$ 52</span></div><p class="item-desc">Arroz, nori, mix de patê de salmão e camarão empanado, cebolinha e cream cheese.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Salmão Toast</span><span class="item-price">R$ 48</span></div><p class="item-desc">Arroz, nori, salmão, cebolinha e cream cheese (maçaricado).</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Phila Crock</span><span class="item-price">R$ 48</span></div><p class="item-desc">Arroz, nori, salmão, cebolinha e cream cheese com farofa do chefe.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Phila Ebi</span><span class="item-price">R$ 55</span></div><p class="item-desc">Arroz, nori, tempurá de camarão, tempurá de salmão e cream cheese.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Ebi Especial Alho</span><span class="item-price">R$ 58</span></div><p class="item-desc">Arroz, nori, camarão ao alho e óleo com cream cheese e alho torrado.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Taychi Hot</span><span class="item-price">R$ 60</span></div><p class="item-desc">Arroz, nori, mix de patê de salmão e camarão empanado, cebolinha e cream cheese (empanado).</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Philaharu</span><span class="item-price">R$ 56</span></div><p class="item-desc">Arroz, salmão, cream cheese e cebolinha na massa do harumaki (hot).</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Taychi Haru</span><span class="item-price">R$ 58</span></div><p class="item-desc">Arroz, nori, mix de salmão e camarão empanado, cebolinha e cream cheese na massa do harumaki (hot).</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Super Skin</span><span class="item-price">R$ 38</span></div><p class="item-desc">Arroz, nori, patê de salmão, pele de salmão frita, cebolinha e cream cheese.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Phila Crispy</span><span class="item-price">R$ 45</span></div><p class="item-desc">Salmão em cubos temperados com molho do chef, arroz, raspas de limão siciliano, crispy de batata doce, gergelim e cebolinha.</p></div></article>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <h3 class="subsection-title">Supreme</h3>
+    <div class="items">
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Salmão Supreme</span><span class="item-price">R$ 85</span></div><p class="item-desc">Salmão maçaricado com patê de salmão, cream cheese e cebolinha.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Mega Supreme</span><span class="item-price">R$ 90</span></div><p class="item-desc">Salmão maçaricado com patê de salmão, cream cheese e cebolinha.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== POKE ====================== -->
+<section class="section" id="poke">
+  <h2 class="section-title">Poke</h2>
+
+  <p class="subsection-hint" style="max-width:640px;margin:0 auto 20px;line-height:1.6;">
+    O nome <em>Poke</em> é uma palavra havaiana que significa "cortar ou fatiar". Os pratos de Poke são recheados de ingredientes bem cortadinhos e fatiados, fáceis e rápidos para consumir.
+  </p>
+
+  <div class="custom-block">
+    <h4>Personalize seu Poke <span class="price-tag" style="float:right;">R$ 65</span></h4>
+    <div class="step">
+      <div class="step-label">Escolha 01 · Base</div>
+      <ul><li>Arroz</li><li>Alface</li></ul>
+    </div>
+    <div class="step">
+      <div class="step-label">Escolha 02 · Proteínas</div>
+      <p style="color:var(--text-mute);font-size:12px;margin-bottom:4px;">Proteína 1 (verde) — 50g:</p>
+      <ul><li>Salmão</li><li>Salmão grelhado</li><li>Salmão empanado</li></ul>
+      <p style="color:var(--text-mute);font-size:12px;margin:8px 0 4px;">Proteína 2 (amarela) — 50g:</p>
+      <ul><li>Patê de salmão grelhado</li><li>Camarão empanado</li><li>Shimeji</li><li>Lâminas de polvo</li><li>Kani</li></ul>
+    </div>
+    <div class="step">
+      <div class="step-label">Escolha 03 · Complementos</div>
+      <ul>
+        <li>Sunomono · Cream cheese · Crispy de couve · Crispy de batata doce</li>
+        <li>Manga · Milho · Cenoura · Mix repolho · Tomate cereja · Cebola roxa · Azeitona</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <h3 class="subsection-title">Pokes prontos</h3>
+    <div class="items">
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Salmão</span><span class="item-price">R$ 55</span></div><p class="item-desc">Arroz, salmão com cream cheese, sunomono, manga e crispy de couve.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Salmão e Camarão</span><span class="item-price">R$ 58</span></div><p class="item-desc">Arroz, salmão com cream cheese, camarão, sunomono e crispy de couve.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Salmão com Shimeji</span><span class="item-price">R$ 55</span></div><p class="item-desc">Arroz, salmão com cream cheese, shimeji, manga e crispy de couve.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Salmão Patê Grill</span><span class="item-price">R$ 42</span></div><p class="item-desc">Arroz, patê de salmão grelhado com cream cheese, sunomono, milho e crispy de batata doce.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Salmão Avocado</span><span class="item-price">R$ 55</span></div><p class="item-desc">Arroz, salmão empanado, kani, abacate, crispy de batata doce, cream cheese, cebola roxa e geleia de maracujá.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Poke Fit</span><span class="item-price">R$ 45</span></div><p class="item-desc">Alface, salmão, tomate cereja, milho, pepino e cenoura.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Vegetariano <span class="item-veg">🌱</span></span><span class="item-price">R$ 40</span></div><p class="item-desc">Arroz, shimeji, sunomono, milho, manga e crispy de batata doce.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Salmão Ebi Shimeji</span><span class="item-price">R$ 60</span></div><p class="item-desc">Arroz, salmão com cream cheese, camarão empanado, shimeji, manga e crispy de couve.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Samurai</span><span class="item-price">R$ 64</span></div><p class="item-desc">Arroz, salmão maçaricado, camarão ao alho e óleo, manga, crispy de couve e cream cheese.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Salmonando</span><span class="item-price">R$ 70</span></div><p class="item-desc">Arroz, salmão em cubos, salmão empanado, patê de salmão grelhado, sunomono, manga e cream cheese.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Camarou</span><span class="item-price">R$ 70</span></div><p class="item-desc">Arroz, camarão empanado, salmão ao alho e óleo, sunomono, manga, crispy de couve e cream cheese.</p></div></article>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <h3 class="subsection-title">Turbine seu Poke</h3>
+    <div class="items">
+      <article class="item"><div class="item-body"><div class="item-line"><span class="item-name">Salmão em cubos 50g</span><span class="item-price">R$ 25</span></div></div></article>
+      <article class="item"><div class="item-body"><div class="item-line"><span class="item-name">Camarão empanado 50g</span><span class="item-price">R$ 20</span></div></div></article>
+      <article class="item"><div class="item-body"><div class="item-line"><span class="item-name">Camarão ao alho e óleo 50g</span><span class="item-price">R$ 25</span></div></div></article>
+      <article class="item"><div class="item-body"><div class="item-line"><span class="item-name">Shimeji</span><span class="item-price">R$ 15</span></div></div></article>
+      <article class="item"><div class="item-body"><div class="item-line"><span class="item-name">Patê de salmão grelhado 50g</span><span class="item-price">R$ 20</span></div></div></article>
+      <article class="item"><div class="item-body"><div class="item-line"><span class="item-name">Lâminas de polvo</span><span class="item-price">R$ 12</span></div></div></article>
+      <article class="item"><div class="item-body"><div class="item-line"><span class="item-name">Cream cheese 50g</span><span class="item-price">R$ 6</span></div></div></article>
+      <article class="item"><div class="item-body"><div class="item-line"><span class="item-name">Crispy de couve</span><span class="item-price">R$ 5</span></div></div></article>
+      <article class="item"><div class="item-body"><div class="item-line"><span class="item-name">Gengibre caramelizado</span><span class="item-price">R$ 6</span></div></div></article>
+      <article class="item"><div class="item-body"><div class="item-line"><span class="item-name">Molho pimenta e mel</span><span class="item-price">R$ 6</span></div></div></article>
+      <article class="item"><div class="item-body"><div class="item-line"><span class="item-name">Milho</span><span class="item-price">R$ 3</span></div></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== PRATOS QUENTES ====================== -->
+<section class="section" id="quentes">
+  <h2 class="section-title">Pratos Quentes</h2>
+
+  <div class="subsection">
+    <h3 class="subsection-title">Teppan</h3>
+    <p class="subsection-hint">Acompanhado de arroz yakimeshi e salada de repolho branco, cenoura e ovo frito</p>
+    <div class="items">
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Frango</span><span class="item-price">R$ 48</span></div></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Filé</span><span class="item-price">R$ 60</span></div></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Salmão</span><span class="item-price">R$ 65</span></div></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Camarão</span><span class="item-price">R$ 55</span></div><p class="item-meta">Não acompanha ovo.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Frutos do Mar</span><span class="item-price">R$ 62</span></div><p class="item-meta">Não acompanha ovo.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Misto</span><span class="item-price">R$ 65</span></div><p class="item-desc">Carne, frango, camarão, lula e polvo.</p><p class="item-meta">Não contém ovo.</p></div></article>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <h3 class="subsection-title">Yakisoba</h3>
+    <p class="subsection-hint">Macarrão ao molho oriental com legumes</p>
+    <div class="items">
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Frango</span><span class="item-price">R$ 42</span></div></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Carne</span><span class="item-price">R$ 48</span></div></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Carne e Frango</span><span class="item-price">R$ 50</span></div></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Camarão</span><span class="item-price">R$ 50</span></div></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Taychi</span><span class="item-price">R$ 54</span></div></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Vegetariano</span><span class="item-price">R$ 50</span></div></div></article>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <h3 class="subsection-title">Lámem</h3>
+    <div class="items">
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">A Moda da Casa</span><span class="item-price">R$ 60</span></div><p class="item-desc">Caldo oriental, macarrão, cenoura, filé, ovo e cebolinha.</p></div></article>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <h3 class="subsection-title">Risotos</h3>
+    <div class="items">
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Risoto à Piamontese com Filé Mignon</span><span class="item-price">R$ 60</span></div><p class="item-desc">Risoto à piamontese com filé mignon.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Risoto à Piamontese com Salmão</span><span class="item-price">R$ 65</span></div><p class="item-desc">Risoto à piamontese com salmão.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Risoto de Camarão</span><span class="item-price">R$ 58</span></div><p class="item-desc">Risoto de camarão com salmão grelhado.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Risoto Salmão Crost</span><span class="item-price">R$ 65</span></div><p class="item-desc">Risoto à piamontese com salmão na crosta de gergelim.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Risoto de Alho e Filé</span><span class="item-price">R$ 60</span></div><p class="item-desc">Risoto de alho com bacon e filé mignon.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Risoto de Cogumelo Shimeji <span class="item-veg">🌱</span></span><span class="item-price">R$ 48</span></div><p class="item-desc">Risoto de cogumelo shimeji e tomate cereja.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Risoto Shitaki e Shimeji <span class="item-veg">🌱</span></span><span class="item-price">R$ 52</span></div><p class="item-desc">Risoto de cogumelos shitaki e shimeji.</p></div></article>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <h3 class="subsection-title">Massas</h3>
+    <p class="subsection-hint">Penne, espaghuetti ou fettuccine</p>
+    <div class="items">
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Massa com Camarão</span><span class="item-price">R$ 60</span></div><p class="item-desc">Massa fettuccine com camarões ao molho do chef.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Massa com Filé Mignon</span><span class="item-price">R$ 62</span></div><p class="item-desc">Massa fettuccine com filé mignon ao molho do chef.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Carbonara de Camarões</span><span class="item-price">R$ 60</span></div><p class="item-desc">Massa penne ou espaguete à carbonara com camarões.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Carbonara</span><span class="item-price">R$ 48</span></div><p class="item-desc">Massa penne ou espaguete ao molho de ovos e bacon.</p></div></article>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <h3 class="subsection-title">Parmegiana</h3>
+    <div class="items">
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Filé Mignon à Parmegiana</span><span class="item-price">R$ 68</span></div><p class="item-desc">Filé mignon à parmegiana com molho e queijo, acompanhado de arroz branco e salada de repolho e cenoura.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Filé de Frango à Parmegiana</span><span class="item-price">R$ 55</span></div><p class="item-desc">Filé de frango à parmegiana com molho e queijo, acompanhado de arroz branco e salada de repolho e cenoura.</p></div></article>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <h3 class="subsection-title">Fit &amp; Saladas</h3>
+    <div class="items">
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Salmão Fit</span><span class="item-price">R$ 58</span></div><p class="item-desc">Salmão grelhado, legumes salteados e purê de batata doce.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Frango Fit</span><span class="item-price">R$ 38</span></div><p class="item-desc">Frango grelhado, legumes salteados e purê de batata doce.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Salada de Salmão</span><span class="item-price">R$ 45</span></div><p class="item-desc">Mix de folhas, repolho roxo, cebola roxa, tomate cereja, lascas de salmão grelhado e molho especial.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Salada Tropical</span><span class="item-price">R$ 35</span></div><p class="item-desc">Mix de folhas (alface americana e alface roxa), tomate cereja, manga e kani.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Salada Caesar</span><span class="item-price">R$ 30</span></div><p class="item-desc">Mix de folhas, croutons e molho caesar.</p></div></article>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <h3 class="subsection-title">Outros</h3>
+    <div class="items">
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Taychi Kids Carne</span><span class="item-price">R$ 38</span></div><p class="item-desc">Tiras de filé mignon, batata frita e arroz branco.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Taychi Kids Frango</span><span class="item-price">R$ 32</span></div><p class="item-desc">Tiras de peito de frango, batata frita e arroz branco.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Frango Rosê</span><span class="item-price">R$ 38</span></div><p class="item-desc">Peito de frango com arroz à grega, salada e batata frita.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Strogonoff de Carne</span><span class="item-price">R$ 38</span></div><p class="item-desc">Strogonoff de filé bovino, acompanhado de arroz branco e batata palha.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Strogonoff de Frango</span><span class="item-price">R$ 34</span></div><p class="item-desc">Strogonoff de filé de frango, acompanhado de arroz branco e batata palha.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== SOBREMESAS ====================== -->
+<section class="section" id="sobremesas">
+  <h2 class="section-title">Sobremesas</h2>
+  <div class="subsection">
+    <div class="items">
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Banana Haru</span><span class="item-price">R$ 22</span></div><p class="item-desc">Banana empanada na massa de harumaki, leite condensado e canela.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Harumaki Sensação</span><span class="item-price">R$ 26</span></div><p class="item-desc">3 harumakis de morango com chocolate, calda de chocolate e morango.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Petit Gateau</span></div><p class="item-desc">Tradicional bolo de chocolate com sorvete de creme.</p><div class="item-variants"><span class="item-variant">1 bola <strong>R$ 28</strong></span><span class="item-variant">2 bolas <strong>R$ 32</strong></span></div></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Tiramisu</span><span class="item-price">R$ 25</span></div><p class="item-desc">Creme de leite, biscoito champanhe com toque de café.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Pudim</span><span class="item-price">R$ 12</span></div><p class="item-desc">Pudim de leite.</p></div></article>
+      <article class="item"><div class="item-photo"></div><div class="item-body"><div class="item-line"><span class="item-name">Taça Morango Tentação</span><span class="item-price">R$ 30</span></div><p class="item-desc">Fatias de abacaxi com hortelã e raspa de limão.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== BEBIDAS ====================== -->
+<section class="section" id="bebidas">
+  <h2 class="section-title">Bebidas</h2>
+
+  <div class="subsection">
+    <h3 class="subsection-title">Sem álcool</h3>
+    <div class="items">
+      <article class="item"><div class="item-body"><div class="item-line"><span class="item-name">Água mineral</span><span class="item-price">R$ 5</span></div></div></article>
+      <article class="item"><div class="item-body"><div class="item-line"><span class="item-name">Água com gás</span><span class="item-price">R$ 5,50</span></div></div></article>
+      <article class="item"><div class="item-body"><div class="item-line"><span class="item-name">Água tônica</span><span class="item-price">R$ 7</span></div></div></article>
+      <article class="item"><div class="item-body"><div class="item-line"><span class="item-name">Água saborizada</span><span class="item-price">R$ 7</span></div></div></article>
+      <article class="item"><div class="item-body"><div class="item-line"><span class="item-name">Energético Red Bull</span><span class="item-price">R$ 6</span></div></div></article>
+      <article class="item"><div class="item-body"><div class="item-line"><span class="item-name">Energético Monster</span><span class="item-price">R$ 9</span></div></div></article>
+      <article class="item"><div class="item-body"><div class="item-line"><span class="item-name">Refrigerante</span><span class="item-price">R$ 6</span></div><p class="item-desc">Coca, Coca Zero, Fanta, Sprite, Pepsi, Guaraná Antarctica, Guaraná Zero.</p></div></article>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <h3 class="subsection-title">Sucos Naturais</h3>
+    <div class="items">
+      <article class="item"><div class="item-body"><div class="item-line"><span class="item-name">Limão · Abacaxi · Maracujá</span><span class="item-price">R$ 12</span></div></div></article>
+      <article class="item"><div class="item-body"><div class="item-line"><span class="item-name">Morango · Kiwi · Abacaxi com hortelã</span><span class="item-price">R$ 14</span></div></div></article>
+      <article class="item"><div class="item-body"><div class="item-line"><span class="item-name">Limonada Suíça · Detox</span><span class="item-price">R$ 16</span></div></div></article>
+      <article class="item"><div class="item-body"><div class="item-line"><span class="item-name">Frutas vermelhas</span><span class="item-price">R$ 18</span></div></div></article>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <h3 class="subsection-title">Cerveja &amp; Chopp</h3>
+    <p class="subsection-hint">Consulte as opções com o garçom</p>
+    <div class="items">
+      <article class="item"><div class="item-body"><div class="item-line"><span class="item-name">Cervejas</span></div><p class="item-desc">Heineken · Corona · Stella Artois · Budweiser · Spaten · Original One Way.</p></div></article>
+      <article class="item"><div class="item-body"><div class="item-line"><span class="item-name">Chopp 400 ml / 500 ml</span></div><p class="item-desc">Stella Artois · Budweiser · Spaten · Original One Way.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  TAYCHÍ SUSHI BAR · MANAUS/AM &nbsp;·&nbsp; <a href="/links/">Mais links</a> &nbsp;·&nbsp; <a href="/rodizio/">Cardápio do Rodízio</a>
+</footer>
+
+</div>
+
+<a href="#" class="back-top" id="backTop" aria-label="Voltar ao topo">
+  <svg viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</a>
+
+<script>
+  // Scrollspy — destaca o chip da seção visível
+  const chips = document.querySelectorAll('.nav-chip');
+  const sections = document.querySelectorAll('.section');
+  const navScroll = document.getElementById('navScroll');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const id = e.target.id;
+        chips.forEach(c => {
+          const on = c.dataset.target === id;
+          c.classList.toggle('is-active', on);
+          if (on && navScroll) {
+            // scroll horizontal do nav pra chip ativo ficar visível
+            c.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+          }
+        });
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+
+  sections.forEach(s => observer.observe(s));
+
+  // Back-to-top
+  const backTop = document.getElementById('backTop');
+  window.addEventListener('scroll', () => {
+    backTop.classList.toggle('is-visible', window.scrollY > 600);
+  }, { passive: true });
+  backTop.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+
+</body>
+</html>
