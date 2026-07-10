@@ -1016,6 +1016,18 @@ body::before {
   const sections = document.querySelectorAll('.section');
   const navScroll = document.getElementById('navScroll');
 
+  function ensureChipVisible(chip) {
+    if (!navScroll) return;
+    const cLeft = chip.offsetLeft;
+    const cRight = cLeft + chip.offsetWidth;
+    const vLeft = navScroll.scrollLeft;
+    const vRight = vLeft + navScroll.clientWidth;
+    if (cLeft < vLeft + 8 || cRight > vRight - 8) {
+      const target = cLeft - (navScroll.clientWidth - chip.offsetWidth) / 2;
+      navScroll.scrollTo({ left: target, behavior: 'smooth' });
+    }
+  }
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -1023,10 +1035,7 @@ body::before {
         chips.forEach(c => {
           const on = c.dataset.target === id;
           c.classList.toggle('is-active', on);
-          if (on && navScroll) {
-            // scroll horizontal do nav pra chip ativo ficar visível
-            c.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-          }
+          if (on) ensureChipVisible(c);
         });
       }
     });
